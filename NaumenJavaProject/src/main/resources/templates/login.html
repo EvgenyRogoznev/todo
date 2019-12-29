@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <!--link rel="stylesheet" href="assets/css/styleForEnter.css"-->
+    <!--link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Montserrat&display=swap&subset=cyrillic-ext" rel="stylesheet"-->
+    <title>Todo</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+        }
+
+        .intro {
+            width: 100%;
+            height: 100vh;
+            background:  url(https://lh3.googleusercontent.com/wDotGl5lhanNWi0lmv-EDXdaPlS4CuDiVFFYA8TJLBcw_6iBFkQs5Rp5k2VYgNBUtVGMn4E4M632P-RWIVPwi1KzmgWYnxDy643geP8UUxRq9X3Jsrc_4hA5j0uDIIyHxlkjeAJSEVR66yjTbcsQssb96t3-dA_IzH8JcH4NLycSrLpAp00taMiwA37lpgNKunRMrJ4O0oPyIMSx5iWOMDHXkZaKdcXjwFH9h3RgD92GoYWP5HNyk5iIh6hCsA7CDI_Ynwtlq3b_EttmMEBCooazqstVPzhmIUivM1ZhsGNfi7cPu7DDZeQo2iaQtjZlFXfJ2zGLlrGRvtd-2LZuAxh6OMAeHEmzwR_6g1qBgBdaEhfK4_5NsFUOT91rF7rzkSeYJcXAAyszyDFIeKZ3yPxjhQ-pKbYqK2F1eAx_Sv15GJN40kBR5C0pfzl19Xyd6H-PABE8CRO2aALob8sRAtqsbsWmjngPlfJ8tfRdjj-AxpKZzCF7JPSirWLmo9CFLxlh9Q5RYf2ZvTo8bYQSkF77NyyrbvZzpTtEaAL9JZkVMyK91y--L07fSOyxlCZvWYNT74IX2FKXVl37q2y1pns5pmimhhUM_lIJ_Cu4hg6Ujk2bYZawrgvejK4wlwfi0Bm62QnaP3fYT_RN8lJkEMrdINcx2T8KShPSCjzxjjeF2t9KTv_BZp47B_QDsIuKVa2oQds0PCsHcGS_qj7qUvP4rbP6xgzi6bxo1Np3a1ZF_jQ=w1128-h611-no) no-repeat ;
+            background-size: 100%;
+        }
+
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+            margin: auto;
+            height: 10%;
+            margin-top: 1%;
+
+        }
+
+        .nav {
+            color: black;
+            font-weight: 700;
+            font-size: 18px;
+            text-decoration: none;
+            padding: 20px;
+        }
+
+        .nav:hover {
+            color: #4715cb;
+        }
+
+        .logo {
+            display: flex;
+            font-size: 40px;
+            font-weight: 700;
+            color: black;
+        }
+
+        .info {
+            float: left;
+            margin-top: 13%;
+            margin-left: 4%;
+            width: 50%;
+        }
+
+        .login,
+        .password{
+            width: 75%;
+            font-size: 100%;
+            padding: 2.5%;
+            margin: 3%;
+        }
+
+        .botton {
+            min-width: 20%;
+            width: auto;
+            font-size: 100%;
+            padding: 2.5%;
+            margin: 3%;
+            color: white;
+            font-weight: 500;
+            background-color: rgba(16, 15, 15, 0.8);
+            border: none;
+        }
+
+        .botton:hover {
+            background-color: rgba(70, 45, 137, 0.79);
+        }
+
+        .lab {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 3%;
+        }
+    </style>
+</head>
+
+<body>
+<div class="header">
+
+    <div class="logo">
+        ToDo List
+    </div>
+
+    <div>
+        <a class="nav" href="/help">Как это работает</a>
+        <a class="nav" href="/login">Вход</a>
+        <a class="nav" href="/registration">Регистрация</a>
+    </div>
+
+</div>
+
+
+
+<div class="intro">
+    <div class="info">
+        <div th:if="${param.error}" class="lab">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}" class="lab">
+            You have been logged out.
+        </div>
+        <form th:action="@{/login}" method="post">
+            <div><label class="lab"> User Name : <input type="text" name="username" class="login"/> </label></div>
+            <div><label class="lab"> Password: <input type="password" name="password" class="password"/> </label></div>
+            <div><input type="submit" value="Войти" class="botton"/></div>
+        </form>
+
+        <label class="lab" for="reg">Нет аккаунта?</label>
+
+        <input type="button" class="botton"  value="Создать" id="reg" onClick='location.href="/registration"'  >
+
+    </div>
+</div>
+
+</body>
+
+</html>

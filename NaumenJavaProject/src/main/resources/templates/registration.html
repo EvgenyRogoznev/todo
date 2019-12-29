@@ -1,0 +1,144 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="UTF-8">
+    <!--link rel="stylesheet" href="assets/css/styleForEnter.css"-->
+    <!--link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Montserrat&display=swap&subset=cyrillic-ext" rel="stylesheet"-->
+    <title>Todo</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+        }
+
+        .intro {
+            width: 100%;
+            height: 100vh;
+            background: url(https://lh3.googleusercontent.com/wDotGl5lhanNWi0lmv-EDXdaPlS4CuDiVFFYA8TJLBcw_6iBFkQs5Rp5k2VYgNBUtVGMn4E4M632P-RWIVPwi1KzmgWYnxDy643geP8UUxRq9X3Jsrc_4hA5j0uDIIyHxlkjeAJSEVR66yjTbcsQssb96t3-dA_IzH8JcH4NLycSrLpAp00taMiwA37lpgNKunRMrJ4O0oPyIMSx5iWOMDHXkZaKdcXjwFH9h3RgD92GoYWP5HNyk5iIh6hCsA7CDI_Ynwtlq3b_EttmMEBCooazqstVPzhmIUivM1ZhsGNfi7cPu7DDZeQo2iaQtjZlFXfJ2zGLlrGRvtd-2LZuAxh6OMAeHEmzwR_6g1qBgBdaEhfK4_5NsFUOT91rF7rzkSeYJcXAAyszyDFIeKZ3yPxjhQ-pKbYqK2F1eAx_Sv15GJN40kBR5C0pfzl19Xyd6H-PABE8CRO2aALob8sRAtqsbsWmjngPlfJ8tfRdjj-AxpKZzCF7JPSirWLmo9CFLxlh9Q5RYf2ZvTo8bYQSkF77NyyrbvZzpTtEaAL9JZkVMyK91y--L07fSOyxlCZvWYNT74IX2FKXVl37q2y1pns5pmimhhUM_lIJ_Cu4hg6Ujk2bYZawrgvejK4wlwfi0Bm62QnaP3fYT_RN8lJkEMrdINcx2T8KShPSCjzxjjeF2t9KTv_BZp47B_QDsIuKVa2oQds0PCsHcGS_qj7qUvP4rbP6xgzi6bxo1Np3a1ZF_jQ=w1128-h611-no) no-repeat ;
+            background-size: 100%;
+        }
+
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+            margin: auto;
+            height: 10%;
+            margin-top: 1%;
+
+        }
+
+        .nav {
+            color: black;
+            font-weight: 700;
+            font-size: 18px;
+            text-decoration: none;
+            padding: 20px;
+        }
+
+        .nav:hover {
+            color: #4715cb;
+        }
+
+        .logo {
+            display: flex;
+            font-size: 40px;
+            font-weight: 700;
+            color: black;
+        }
+
+        .info {
+            float: left;
+            margin-top: 13%;
+            margin-left: 4%;
+            width: 50%;
+        }
+
+        .login,
+        .password, .email{
+            width: 75%;
+            font-size: 100%;
+            padding: 2.5%;
+            margin: 3%;
+        }
+
+        .botton {
+            min-width: 20%;
+            width: auto;
+            font-size: 100%;
+            padding: 2.5%;
+            margin: 3%;
+            color: white;
+            font-weight: 500;
+            background-color: rgba(16, 15, 15, 0.8);
+            border: none;
+        }
+
+        .botton:hover {
+            background-color: rgba(70, 45, 137, 0.79);
+        }
+
+        .lab {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 3%;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+
+    <div class="logo">
+        <img src="https://lh3.googleusercontent.com/Cgsf9k_ptQM1ZLI5TF6JWF_SEjxrAIXNZvjbL-YSskH2W9Jz805Lvc1iZHivNNToFcpwkvnPD7jVCPv5o4pnR6HlUTcfayh4z90fXl_0lF0njB5aOaK7DUkwMG52lX1djK22u9qz6s8HdTCp_hUUqOmyJfESqcQmP2zMwb358o0J2hwE649Lx3O2-Pn5w2oOSEMRRto7ZtdCIF29_mZ-X4KG6AmCTSkc-0dOSq-2yGK-EDM1SlMbZziZ6diyFzwjjvmP3cRJKyt6r6LTpzvZ-lM8zSKgTXQBWKRPK3JRNmu_ASLyh2dpxHpAyiSTCv0g7xPPqmg1L5VkJB4yF0HBMmzPaJIL_nN81YpR-qlRxCWU3ToXHUyuRuODG3XrxFu0sdkrX8sntEPyGU9FBEK_50591XyN2AeL9pMo60Ebne0vVKYYOd_fQ_tIwPy6PbYKaLeVNDTS8-kQx6hEzyu0kdaSgVdSMg9G5zNrLNgUaBW8hmG7YbPOWbReU7QUlzkFMFKizJPG2aZxxAom8cQk9COy2H-wvyN605kdW5s-t51_U5yeeLSn1a_m3KVP4_f41hcWvPlqx4G1ETSTJezVDf2TCQhx0yTjtcD8riYETlfqbftCBUahRl3mtdbDoarlZC5au_z0Wh8XGy3A8iai9T0kFqbiD065JXKdwq1gowZxfoVcXBmZmvicrQHzwyAMSrrYf5mWQxYgNyYbCWtaF7BHbxn8LG8jrDYZ9LXpxsz1-DQ=w57-h59-no">
+        ToDo List
+    </div>
+
+    <div>
+        <a class="nav" href="/help">Как это работает</a>
+        <a class="nav" href="/login">Вход</a>
+        <a class="nav" href="/registration">Регистрация</a>
+    </div>
+
+</div>
+
+
+<div class="intro">
+    <div class="info">
+        <div th:if="${isExist}" class="lab">
+            Такой логин уже существует.
+        </div>
+        <form method="POST" modelAttribute="RegistrationForm"   lang="en" name="registrationForm"  action="/registration">
+
+            <input path="email" class="email"       type="email"     placeholder="Введите электронную почту..."
+                   name="email" id="email" maxlength="30">
+
+            <input path="login" class="login"       type="text"     placeholder="Введите логин..."
+                   name= "login" id="login" maxlength="30">
+
+            <input path="password" class="password" type="password" placeholder="Введите пароль..."
+                   name="password" id="pass" maxlength="30">
+
+            <input class="botton" type="submit" value="Регистрация"  id="btn"><br><br>
+
+        </form>
+        <!--/*@thymesVar id="form" type="njp.NaumenJavaProject.forms.RegistrationForm"*/-->
+        <!--/*@thymesVar id="email" type="java.lang.String"*/-->
+        <!--
+                    <p th:text="${form.email}"/>    <!--  надо значение по умолчанию, иначе не отображается станица  на гет запросе-->
+
+    </div>
+</div>
+
+</body>
+
+</html>
